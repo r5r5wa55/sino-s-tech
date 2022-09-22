@@ -1,0 +1,42 @@
+
+
+
+h1.text-header {
+    font-size: 50px;
+    text-align: center;
+    color: #ffffff;
+    background: #009988;
+}
+body {
+    background-color: #009988;
+}
+h1.text-header-water {
+    text-align: center;
+    color: #ffff;
+}
+a.box-btn-add.center {
+    position: absolute;
+    transform: translate(50%, 50%);
+    right: 50;
+    right: 50%;
+    height: 77%;
+}
+div#container-add {
+    padding: aa;
+    width: 100%;
+    height: 53px;
+    position: absolute;
+}
+a.box-btn-add {
+    border: 2px solid #1b5ee6;
+    border-radius: 9px;
+    padding: 4px;
+    letter-spacing:  0.1em;
+    position: relative;
+    transition: 0.5s;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+.hight {
+    height: 57px;
+}
