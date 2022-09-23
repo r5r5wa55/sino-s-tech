@@ -124,4 +124,54 @@ var main =  {
           }
         })
     },
+
+
+
+
+    check_login_user(){
+    
+
+
+      var Username = $('[name=ADMIN_USER]').val(); 
+      var Password = $('[name=ADMIN_PASS]').val();
+    
+
+      console.log(Username);
+      console.log(Password);
+     
+      // return false;
+    
+      var url = window.location.origin+"/index.php/Controll_soft/check_login_user";
+   
+      var data = {
+        'Username':Username,
+        'Password':Password
+      }
+        // console.log(data);
+        //    return false;
+      $.ajax({
+        url : url,
+        method : 'POST',
+        dataType : 'JSON',
+        data:data,
+        cache : false,
+        beforeSend: function(jqXHR, settings) {
+          delete jqXHR.setRequestHeader('X-CSRF-TOKEN');
+        },
+        
+      }).done(function(resp) {
+        // console.log(resp);
+        // return false;
+        if(resp.sino == 1){
+          alert(resp.msg);
+          window.location.assign("http://sino-s-tech.com/index.php/Controll_soft/sino_home");
+          // window.location.href = location.origin+"/index.php/Controll_soft/sino_home"
+  
+        }else{
+          alert(resp.msg);
+        }
+      })
+    },
+    
+    
 }

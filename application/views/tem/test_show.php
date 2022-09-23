@@ -1,35 +1,56 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+	<head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Sino-s-tech</title>
 	
 	<?php 
     	$this->load->view('tem/inc_css');
   	?>
+	
+	</head>
+	<title></title>
+	<body class="bg-color">
 
-
-  
-
-</head>
-<body>
-
-		<div id="container">	
-			<h1 class="text-header">ลิ้งหน้า2</h1>
+	
+		<div id="login">
+			<!-- <h3 class="text-center text-white pt-5">Login to Website</h3> -->
+			<br></br>
+			<br></br>
+			<br></br>
+			<div class="container">
+				<div id="login-row" class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+						<div id="login-box" class="col-md-12">
+							<form id="login-form" class="form" action="" method="post">
+								<h3 class="text-center text-info">Login to Website</h3>
+								<div class="form-group">
+									<label for="username" class="text-info">Username:</label><br>
+									<input type="text" name="ADMIN_USER" id="ADMIN_USER" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="password" class="text-info">Password:</label><br>
+									<input type="text" name="ADMIN_PASS" id="ADMIN_PASS" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+									<button type="button" class="btn btn-block btn-info  btn-lg"  onclick="main.check_login_user()">เข้าสู่ระบบ</button>
+								</div>
+								<div id="register-link" class="text-right">
+							
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 
 
-		<?php foreach($show as $show){ ?>
-			<td><?php echo $show['closet_id'];?></td>
-		
-0		<?php } ?>
 
-		
-		<?php $this->load->view('tem/inc_js.php')?>
 
-</body>
+
+	</body>
+			
+	<?php $this->load->view('tem/inc_js.php')?>
 </html>
