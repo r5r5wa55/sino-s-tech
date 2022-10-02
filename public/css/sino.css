@@ -37,4 +37,154 @@ a.box-btn-add {
     text-decoration: none;
     text-transform: uppercase;
   }
+ .content.product {
+    width: 90%;
+    margin: auto;
+}
+.row.hearder {
+    height: 65px;
+    background-color: #60becd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: auto;
+    border: 1px solid;
+}
 
+.row.body-show-long {
+    height: 65px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: auto;
+    
+    border-bottom: 1px solid;
+}
+
+.hade-show.id-show {
+    text-align: center;
+}
+
+.content-header {
+    text-align: center;
+}
+.col-sm-12.hiden-hearder {
+    height: 92px;
+}
+h1#exampleModalLabel {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-add-sino {
+    height: 56px;
+}
+ul.pagination.justify-content-center {
+    /* height: 153px; */
+    padding: 1em;
+}
+
+.row.hearder-heigth {
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 153px;
+  
+}
+
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.row.hearder-all {
+    height: 500px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: auto;
+    border: 1px solidrgb(133, 128, 128);
+}
+.css-table {
+    width: 100%;
+    border: 1px solidrgb(133, 128, 128);
+    height: 450px;
+}
+.col-lg-12.center-text {
+    text-align: center;
+}
+.row.hearder-heigth-r {
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 153px;
+    border: 1px solidrgb(133, 128, 128);
+  
+}
+
+.row .hearder-add-heard {
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+ 
+  
+}
+
+
+.row.hearder-add {
+    height: 65px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    margin: auto;
+  
+}
+div#add_show {
+    width: 100%;
+    height: 100%;
+}
+div#add_show-1 {
+    width: 100%;
+    height: 100%;
+}
+
+.col-lg-1.col-md-1.col-sm-1.hade-show.id-show {
+    height: 55px;
+}

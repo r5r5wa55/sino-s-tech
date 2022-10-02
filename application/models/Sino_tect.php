@@ -29,7 +29,6 @@ class Sino_tect extends CI_Model {
 		
 		
 	}
-	
 	public function check_login_user($data){
 
 
@@ -97,7 +96,6 @@ class Sino_tect extends CI_Model {
 		}
 		return $sino;
 	}
-
 	public function paginate_custom($totalpage,$curentpage,$rount){
 		$First_page = $rount;
 		$Last_page =$rount;
@@ -197,8 +195,480 @@ class Sino_tect extends CI_Model {
 			// exit();
 		return $DATA;
 	}
+	public function add_produst_sino($data){
+
+		  	// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
+			// exit();
+		$st = array('st'=>0);
+	
+		if(is_array($data) && $data['ProductID']!="" && $data['ProductID']!=""){
+		  $data = array(
+			'ProductID' => $data['ProductID'],
+			'ProductName' => $data['ProductName'],
+			'CategoryID' => $data['CategoryID'],
+			'Price' => $data['Price'], 
+
+		
+		  );
+		 
+		  
+			//   echo "<pre>";
+			//   print_r($data);
+			//   echo "</pre>";
+			//   echo "<pre>";
+			//   print_r($data['RESEARCHER_ID']);
+			//   echo "</pre>";
+			//   exit();
+			
+		  $data = $this->db->insert('productid', $data);
+		  $st = array('st'=>1);
+	
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
+			// echo "<pre>";
+			// print_r($st);
+			// echo "</pre>";
+			// exit();
+		}
+	  
+		return $st;
+	}
+	public function edit_produst_sion($data){
+
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	  $st = array('st'=>0);
+   
+  
+  
+  
+	  $this->db->where('ProductID', $data['ProductID']);
+	  $this->db->set('ProductID', $data['ProductID']);
+	  $this->db->set('ProductName',  $data['ProductName']);
+	  $this->db->set('CategoryID', $data['CategoryID']);
+	  $this->db->set('Price', $data['Price']);
+	
+	  $this->db->update('productid');
+	  $st = array('st'=>1);
+	  	// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+	  	// echo "<pre>";
+		// print_r($st);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	
+  
+	  return $st;
+	}
+	public function delete_produst($data){
+		$st = array('st'=>0);
+		if(is_array($data) && $data['ProductID']!=""){
+		  $this->db->delete('productid', array('ProductID' => $data['ProductID'])); 
+		  $st = array('st'=>1);
+		}
+		return $st;
+	}
+	
+	public function select_customer(){
+		$this->db->select('*');
+		$this->db->from('customer');
+
+	
+		$customer = $this->db->get();
+		$count  = $customer->num_rows();
+		
+
+		// echo "<pre>";
+		// print_r($customer);
+		// echo "</pre>";
+		// exit();
+	
+		$rount =$_SERVER['PHP_SELF'];
+		$page = 1;
+		if(isset($_GET['page']) && $_GET['page'] !=""){
+		  $page = $_GET['page'];
+		}
+		$totalpage = CEIL($count/5);
+	  
+		// echo "<pre>";
+		// print_r($totalpage);
+		// echo "</pre>";
+		// exit();
+	
+		$create_links = $this->paginate_custom($totalpage,$count,$rount);
+	  
+		// echo "<pre>";
+		// print_r($create_links);
+		// echo "</pre>";
+		// exit();
+		$this->db->select('*');
+		$this->db->from('customer');
+
+		$pages = 0;
+		if($page > 1){
+		  $pages = (int)($page-1) * 5;
+		}
+		$this->db->limit(5, $pages);
+		$customer = $this->db->get();
+		$customer = $customer->result_array();
+	
+
+		$DATA = array(
+		  'customer'=>$customer,
+		  'create_links' => $create_links
+		);
+		  // echo "<pre>";
+			// print_r($st);
+			// echo "</pre>";
+			// exit();
+		return $DATA;
+	}
+	public function add_customer_sino($data){
+
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit();
+
+		$st = array('st'=>0);
+
+		if(is_array($data) && $data['CusID']!="" && $data['CusID']!=""){
+			$data = array(
+			'CusID' => $data['CusID'],
+			'Name' => $data['Name'],
+			'Surname' => $data['Surname'],
+			'Status' => $data['Status'], 
+			
+
+		
+			);
+		
+			
+			//   echo "<pre>";
+			//   print_r($data);
+			//   echo "</pre>";
+			//   echo "<pre>";
+			//   print_r($data['RESEARCHER_ID']);
+			//   echo "</pre>";
+			//   exit();
+			
+			$data = $this->db->insert('customer', $data);
+			$st = array('st'=>1);
+
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
+			// echo "<pre>";
+			// print_r($st);
+			// echo "</pre>";
+			// exit();
+		}
+
+		return $st;
+	}
+	public function edit_customer_sion($data){
+
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	  $st = array('st'=>0);
+   
+  
+  
+  
+	  $this->db->where('CusID', $data['CusID']);
+	  $this->db->set('CusID', $data['CusID']);
+	  $this->db->set('Name',  $data['Name']);
+	  $this->db->set('Surname', $data['Surname']);
+	  $this->db->set('Status', $data['Status']);
+	
+	
+	  $this->db->update('customer');
+	  $st = array('st'=>1);
+	  	// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+	  	// echo "<pre>";
+		// print_r($st);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	
+  
+	  return $st;
+	}
+	public function delete_customer($data){
+		$st = array('st'=>0);
+		if(is_array($data) && $data['CusID']!=""){
+		  $this->db->delete('customer', array('CusID' => $data['CusID'])); 
+		  $st = array('st'=>1);
+		}
+		return $st;
+	}
+	
+	
+	public function select_user(){
+		$this->db->select('*');
+		$this->db->from('user');
+
+	
+		$user = $this->db->get();
+		$count  = $user->num_rows();
+		
+
+		// echo "<pre>";
+		// print_r($customer);
+		// echo "</pre>";
+		// exit();
+	
+		$rount =$_SERVER['PHP_SELF'];
+		$page = 1;
+		if(isset($_GET['page']) && $_GET['page'] !=""){
+		  $page = $_GET['page'];
+		}
+		$totalpage = CEIL($count/5);
+	  
+		// echo "<pre>";
+		// print_r($totalpage);
+		// echo "</pre>";
+		// exit();
+	
+		$create_links = $this->paginate_custom($totalpage,$count,$rount);
+	  
+		// echo "<pre>";
+		// print_r($create_links);
+		// echo "</pre>";
+		// exit();
+		$this->db->select('*');
+		$this->db->from('user');
+
+		$pages = 0;
+		if($page > 1){
+		  $pages = (int)($page-1) * 5;
+		}
+		$this->db->limit(5, $pages);
+		$user = $this->db->get();
+		$user = $user->result_array();
+	
+
+		$DATA = array(
+		  'user'=>$user,
+		  'create_links' => $create_links
+		);
+		  // echo "<pre>";
+			// print_r($st);
+			// echo "</pre>";
+			// exit();
+
+
+
+
+			// $we = array(
+			// 	'*   *****',
+			// 	'**   ****',
+			// 	'***   ***',
+			// 	'****   **',
+			// 	'*****   *',
+				
+			//   );
+			//   $we2 = array(
+			// 	'*',
+			// 	'*',
+			// 	'',
+			// 	'',
+			// 	'',
+			// 	'*'
+			//   );
+		  
+			
+			//   $DATA = array(
+			// 	'we'=>$we,
+			// 	'we2'=>$we2
+		  
+			//   );
+			 
+		  
+		  
+			//   echo "<pre>";
+			//   print_r($DATA);
+			//   echo "</pre>";
+			//   exit();
+		  
+
+			  
+
+		return $DATA;
+	}
+	public function add_user($data){
+
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit();
+
+		$st = array('st'=>0);
+
+		if(is_array($data) && $data['UserID']!="" && $data['UserID']!=""){
+			$data = array(
+			
+			'UserID' => $data['UserID'],
+			'Name' => $data['Name'],
+			'Surname' => $data['Surname'],
+			'Username' => $data['Username'],
+			'Password' => $data['Password'],
+			'Status' => $data['Status'], 
+			
+
+		
+			);
+		
+			
+			//   echo "<pre>";
+			//   print_r($data);
+			//   echo "</pre>";
+			//   echo "<pre>";
+			//   print_r($data['RESEARCHER_ID']);
+			//   echo "</pre>";
+			//   exit();
+			
+			$data = $this->db->insert('user', $data);
+			$st = array('st'=>1);
+
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
+			// echo "<pre>";
+			// print_r($st);
+			// echo "</pre>";
+			// exit();
+		}
+
+		return $st;
+	}
+	public function edit_user($data){
+
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	  $st = array('st'=>0);
+   
+  
+  
+  
+	  $this->db->where('UserID', $data['UserID']);
+	  $this->db->set('UserID', $data['UserID']);
+	  $this->db->set('Name',  $data['Name']);
+	  $this->db->set('Surname', $data['Surname']);
+	  $this->db->set('Username',  $data['Username']);
+	  $this->db->set('Password', $data['Password']);
+	  $this->db->set('Status', $data['Status']);
+
+	
+	  $this->db->update('user');
+	  $st = array('st'=>1);
+	  	// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+	  	// echo "<pre>";
+		// print_r($st);
+		// echo "</pre>";
+		// exit(); 
+   
+  
+	
+  
+	  return $st;
+	}
+	public function delete_user($data){
+		$st = array('st'=>0);
+		if(is_array($data) && $data['UserID']!=""){
+		  $this->db->delete('user', array('UserID' => $data['UserID'])); 
+		  $st = array('st'=>1);
+		}
+		return $st;
+	}
+
+
+	public function select_order($data_search = ""){
+		
+	
+		
+	
+	
+ 	 		
+
+
+
+		$this->db->select('*');
+		$this->db->from('customer');
+		
+		if($data_search != ""){
+			$this->db->like('customer.CusID', $data_search);
+			$this->db->or_like('customer.Name', $data_search);
+			$this->db->or_like('customer.Username', $data_search);
+
+		};
+	
+			// echo "<pre>";
+			// print_r($data_search);
+			// echo "</pre>";
+			// exit();
+		$customer = $this->db->get();
+		$customer = $customer->row_array();
+		$productid = $this->select_produst();
+		
+
+		if($customer == ""){
+			$this->db->select('*');
+			$this->db->from('customer');
+			$this->db->order_by("customer.CusID", "asc");  
+			$customer = $this->db->get();
+			$customer = $customer->row_array();
+			
+		};
+			// echo "<pre>";
+			// print_r($customer);
+			// echo "</pre>";
+			// echo "<pre>";
+			// print_r($productid);
+			// echo "</pre>";
+			// exit();
+
+		  
+		$DATA = array(
+		  'productid'=>$productid['productid'],
+		  'customer'=>$customer
+		);
+
+		// echo "<pre>";
+		// print_r($DATA);
+		// echo "</pre>";
+		// exit();
+		
+		return $DATA;
+	}
+
+	
 	
 }
+
 
 
 

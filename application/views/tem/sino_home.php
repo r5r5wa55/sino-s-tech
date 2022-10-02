@@ -17,9 +17,9 @@
   <nav role="navigation">
     <ul>
         <li class="slide-in-nav-item"><a href="<?php echo base_url()?>index.php/Controll_soft/produst" data-content="ผลิตภัณฑ์">Product</a></li>
-        <li class="slide-in-nav-item-delay-1"><a href="<?php echo base_url()?>index.php/Controll_soft/produst" data-content="ผู้ใช้งาน">User</a></li>
-        <li class="slide-in-nav-item-delay-2"><a href="<?php echo base_url()?>index.php/Controll_soft/produst" data-content="ลูกค้า">Customer</a></li>
-        <li class="slide-in-nav-item-delay-3"><a href="<?php echo base_url()?>index.php/Controll_soft/produst" data-content="สินค้า">Order</a></li>
+        <li class="slide-in-nav-item-delay-1"><a href="<?php echo base_url()?>index.php/Controll_soft/user" data-content="ผู้ใช้งาน">User</a></li>
+        <li class="slide-in-nav-item-delay-2"><a href="<?php echo base_url()?>index.php/Controll_soft/customer" data-content="ลูกค้า">Customer</a></li>
+        <li class="slide-in-nav-item-delay-3"><a href="<?php echo base_url()?>index.php/Controll_soft/order" data-content="สินค้า">Order</a></li>
         <li class="slide-in-nav-item-delay-4">
             <a href="<?php echo base_url()?>index.php/Controll_soft/logout" data-content="ออกจากระบบ" onclick="return confirm('ยืนยันการออกจากระบบ')" >
                 Logout
